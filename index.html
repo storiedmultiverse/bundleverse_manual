@@ -21,7 +21,7 @@
             opacity: 0.9;
         }
     </style>
-    <title>SM</title>
+    <title>Bundle</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
@@ -86,6 +86,11 @@
             </br>
         </div>
 
+<center>
+    <br>
+    <img src="grapes-640.jpg" alt="logo" height="100" width="100">
+    <br>
+</center>
 
 
 <h1 id="introduction">INTRODUCTION</h1>
@@ -199,21 +204,21 @@ resources have only a secondary, assistive role in these missions - you instanti
 practices also in real life.<br>
 <ul>
 <li>
-• Sizmarians are species of Bundle-beings.
+Sizmarians are species of Bundle-beings.
 </li><li>
-• Characteristic of sizmarians is some special state of Being (e.g. being cool, positive, caring, generous etcetera).
+Characteristic of sizmarians is some special state of Being (e.g. being cool, positive, caring, generous etcetera).
 This state of Being transcends all other features of sizmarians and makes them resistant to dogmatic teachings -
 sizmarians respect beliefs by others but when it comes to their own theories they often take them with a touch of an
 irony.
 </li><li>
-• Sizmarians design and maintain their own afterlife (don’t know exactly how – be creative).
+Sizmarians design and maintain their own afterlife (don’t know exactly how – be creative).
 </li><li>
-• Sizmarians run projects to make this world a better place (e.g. eradicate poverty, promote education and science,
+Sizmarians run projects to make this world a better place (e.g. eradicate poverty, promote education and science,
 fight injustice etc).
 </li><li>
-• Sizmarians build and maintain digital twins of themselves.
+Sizmarians build and maintain digital twins of themselves.
 </li><li>
-• For a sizmarian life is great - it is colourful and full of exciting surprises. Make no mistake here, sizmarians are
+For a sizmarian life is great - it is colourful and full of exciting surprises. Make no mistake here, sizmarians are
 aware of suffering and misery permeating this world, but they also know there is a lot of nice stuff out there and they
 believe the broken parts (sooner or later) will be fixed.
 </li>
@@ -244,58 +249,69 @@ You must love your mum.
 
 <ol>
 
-<li>    1. Prerequisites
+<li>    Prerequisites
 
     <ul>
     <li>
-    a. Ubuntu 20.04 or 18.04. Must have open the following ports 22, 80, 443,3021,8080?
+    Ubuntu 20.04 or 18.04. Must have open the following ports 22, 80, 443,3021,8080?
     </li><li>
-    b. Have Admin user account
+    Have Admin user account
     </li><li>
-    c. Have npm and Nodejs installed (v 12.6 and above)
+    Have npm and Nodejs installed (v 12.6 and above)
     </li><li>
-    d. Have MongoDB installed
+    Have MongoDB installed
     </li><li>
-    e. Have a domain name and LetsEncrypt installed for that domain name
+    Have a domain name and LetsEncrypt installed for that domain name
     </li>
     </ul>
 
 </li><li>
-2. ssh to your server as an admin, cd to the /root directory, and get master.zip from the github
+ssh to your server as an admin, cd to the /root directory, and get master.zip from the github
 wget https://github.com/nugzarm/sizmari/archive/master.zip
 </li><li>
-3. Inside the /root directory unzip master.zip (if unzip is not available install it via: apt install unzip). This will
+
+Inside the /root directory unzip master.zip (if unzip is not available install it via: apt install unzip). This will
 create folder /root/sizmari-master/
 unzip master.zip
 (run /root/ sizmari-master/install_bundle.sh) (!!!!!!!!!!!!!!!!!NOT Implemented)
 The script runs the following commands:
 </li><li>
-4. Rename /root/sizmari-master/ to /root/prototype/
+
+Rename /root/sizmari-master/ to /root/prototype/
 mv sizmari-master prototype
 </li><li>
-5. From the command line run
+
+From the command line run
 cp /root/.env_cut /root/.env
 </li><li>
-6. Replace “newsite.com” with your domain name and then run in the command line:
+
+Replace “newsite.com” with your domain name and then run in the command line:
 find /root/prototype \( -type d -name .git -prune \) -o -type f -print0 | xargs -0 sed -i
 's/bundledev\.com/newsite.com/g'
 </li><li>
-7. Replace “newsite” with your domain name (without TLD extension) and then run in the command line:
+
+Replace “newsite” with your domain name (without TLD extension) and then run in the command line:
 find /root/prototype \( -type d -name .git -prune \) -o -type f -print0 | xargs -0 sed -i 's/bundledev/newsite/'
 </li><li>
-8. to run in test mode, run in the command line:
+
+to run in test mode, run in the command line:
 ./srv_start.sh
 </li><li>
-9. To test, enter in browser example.com, wait for the page to download and then login as an admin user:
+
+To test, enter in browser example.com, wait for the page to download and then login as an admin user:
 (!!!!!!!!!!!!!!!!! Not implemented)
 email: admin@gmail.com
 password: admin
 </li><li>
-10. to stop, run in the command line: ./srv_stop.sh
+
+to stop, run in the command line: ./srv_stop.sh
 </li><li>
-11. to run in production: nohup ./srv_start.sh &
+
+to run in production: nohup ./srv_start.sh &
 </li><li>
-12. If needed open /root/.env and update manually keys in /root/.env
+
+If needed open /root/.env and update manually keys in /root/.env
+</li>
 
 </ol>
  
