@@ -16,7 +16,7 @@
         }
 
         img {
-            width: 50%;
+            width: 80%;
             height: auto;
             opacity: 0.9;
         }
@@ -86,7 +86,7 @@
 
             <center>
             <br>
-            <img src="grapes-640.jpg" alt="logo" style="width:150px;height:auto;">
+            <img src="grapes-640.jpg" alt="logo" style="width:200px;height:auto;">
             <br>
             </center>
 
@@ -336,7 +336,7 @@ might be a good idea).
 <div class="w3-main" style="margin-left:270px">
     <center>
         <br>
-        <img src="Navbar.png" alt="navbar" style="width:300px;height:auto;">
+        <img src="Navbar.png" alt="navbar">
         <br>
     </center>
 </div>
@@ -366,7 +366,7 @@ download this mission first before deleting it.
 <div class="w3-main" style="margin-left:270px">
     <center>
     <br>
-    <img src="Mission_table.png" alt="Mission" style="width:100%;height:auto;">
+    <img src="Mission_table.png" alt="Mission">
     <br>
     </center>
 </div>
@@ -386,7 +386,7 @@ Note that saving a new bundle-template deletes all the earlier records and start
 <div class="w3-main" style="margin-left:270px">
     <center>
         <br>
-        <img src="design.png" alt="Design" style="width:400px;height:auto;">
+        <img src="design.png" alt="Design">
         <br>
     </center>
 </div>
@@ -437,7 +437,7 @@ data at once by clicking “SUBMIT” button.
 <div class="w3-main" style="margin-left:270px">
     <center>
         <br>
-        <img src="logging.png" alt="logging" style="width:300px;height:auto;">
+        <img src="logging.png" alt="logging">
         <br>
     </center>
 </div>
@@ -458,7 +458,7 @@ The navigation circle in the top-right is to switch between targets, last record
 <div class="w3-main" style="margin-left:270px">
     <center>
         <br>
-        <img src="view.png" alt="view" style="width:300px;height:auto;">
+        <img src="view.png" alt="view">
         <br>
     </center>
 </div>
@@ -473,7 +473,7 @@ Curves. The Curves button redirects to the page with time series of the recorded
 <div class="w3-main" style="margin-left:270px">
     <center>
         <br>
-        <img src="Curves.png" alt="Curves" style="width:300px;height:auto;">
+        <img src="Curves.png" alt="Curves">
         <br>
     </center>
 </div>
@@ -486,7 +486,7 @@ Correlations. The Correlcharts button redirects to the page with correlations be
 <div class="w3-main" style="margin-left:270px">
     <center>
         <br>
-        <img src="Correlations.png" alt="Correlations" style="width:300px;height:auto;">
+        <img src="Correlations.png" alt="Correlations">
         <br>
     </center>
 </div>
@@ -501,7 +501,7 @@ can read your posts, but they cannot edit or delete them (except the admin user,
 <div class="w3-main" style="margin-left:270px">
     <center>
         <br>
-        <img src="Blog.png" alt="Blog" style="width:300px;height:auto;">
+        <img src="Blog.png" alt="Blog">
         <br>
     </center>
 </div>
@@ -509,7 +509,7 @@ can read your posts, but they cannot edit or delete them (except the admin user,
 <div class="w3-main" style="margin-left:270px">
     <center>
         <br>
-        <img src="blog-post.png" alt="post" style="width:300px;height:auto;">
+        <img src="blog-post.png" alt="blog-post">
         <br>
     </center>
 </div>
@@ -521,7 +521,7 @@ SkyBox is a 3D environment where you can walk around and chat with others – st
 <div class="w3-main" style="margin-left:270px">
     <center>
         <br>
-        <img src="skyBox.png" alt="skybox" style="width:300px;height:auto;">
+        <img src="skyBox.png" alt="skybox">
         <br>
     </center>
 </div>
@@ -542,7 +542,7 @@ development stage).
 <div class="w3-main" style="margin-left:270px">
     <center>
         <br>
-        <img src="bundleDeshboard.png" alt="Dashboard" style="width:300px;height:auto;">
+        <img src="bundleDeshboard.png" alt="Dashboard" >
         <br>
     </center>
 </div>
@@ -620,21 +620,22 @@ Admin can create a new user and allocate this user to a particular user group.
 Note that upon a registration fron the front page a user is allocated by default to the visitors group. Admin can then
 assign that user to another group.
 Note that according to this structure, a user can belong only to a single group.
-
+<br><br>
 Group
 Creating a new group is easy. Just don’t create too many to keep it manageable.
 
-
+<br><br>
 Resource
 Admin can not create new resource through Bundleverse – he/she can only register a new resource on this site (give it a
 name, assign internal url, permissions etc.). The resource itself must be already installed and running on this server.
-
+<br><br>
 Payplan and Subscription
 When creating a payplan, the admin is to select of a resource to be served by this payplan.
 When creating a subscription for a user, and admin is to select a payplan for this user.
-
+<br><br>
 Droplet
 …
+<br><br>
 
 <h1 id="security">5. Security features</h1>
 
@@ -672,19 +673,28 @@ OSS
 
  
 <h1 id="appendixa">Appendix A: Subscription workflow</h1>
-1. Start Stripe child app.
+
+<ol>
+<li>
+Start Stripe child app.<br>
 ./srv_start.sh
-2. Access child app to start a recurrent subscription via configuring Stripe environment (on the remote site)
-main-app.js:
-app.use('/stripeSubs', redirectIfNotRegistered,
-proxy({ target: 'http://127.0.0.1:3035', changeOrigin: true, secure: false, pathRewrite: { '^/stripeSubs': '/' },
-onProxyReq
-}));
-3. Expose webhook endpoint to listen for Stripe events (must match webhook set on the remote Stripe)
-subscriptionRoutesStripe.js:
-router.post("/stripeRecu/webhook" , subscription_controller.subscription_stripeRecu_webhook)
-subscriptionConstrollerStripe.js:
+</li><li>
+Access child app to start a recurrent subscription via configuring 
+Stripe environment (on the remote site)<br>
+main-app.js:<br>
+app.use('/stripeSubs', redirectIfNotRegistered,<br>
+proxy({ target: 'http://127.0.0.1:3035', changeOrigin: true, secure: false, 
+pathRewrite: { '^/stripeSubs': '/' }, onProxyReq }));
+</li><li>
+Expose webhook endpoint to listen for Stripe events 
+(must match webhook set on the remote Stripe)<br>
+subscriptionRoutesStripe.js:<br>
+router.post("/stripeRecu/webhook" , subscription_controller.subscription_stripeRecu_webhook)<br>
+subscriptionConstrollerStripe.js:<br>
 exports.subscription_stripeRecu_webhook = ..
+</li>
+</ol>
+
 
 userController.js – creates new user and redirects to either subscription page or “getserverIP” page (free account). For
 a free account, the user is to provide the server IP and domain name.
@@ -711,7 +721,7 @@ Stripe/premium
 subscription page Stripe api
 /stripeSubs Stripe webhook
 
-
+<br><br>
 subscriptionController.js – handles local subscriptions
 subscriptionControllerStripe.js – includes stripeWebhook() and createStripeLocalCopy() & updateStripeLocalCopy()
 functions.
@@ -721,7 +731,7 @@ also fetch apis to either create or delete both local droplets and DO droplets.
 (eg “/droplets/create” and “/dropletsDO/droplet_create_DO”)
 Note that without “subscriptionControllerStripe.js” local subscriptions (“subscriptionController.js”) and local droplets
 (“dropletController.js”) are isolated from each other (they do not communicate).
-
+<br><br>
 Webhook Event Type processing workflow
 Customer.subscription.created Invoice.payment.succeeded Invoice.payment.failed
 Retrieve stripe subscription and customer email Retrieve stripe subscription
@@ -735,7 +745,7 @@ Create new droplet(user._id) Do nothing sub.status
 == expired
 Update subscription LocalCopy Update subscription LocalCopy
 Issue Warning! Delete droplet
-
+<br><br>
 
 
 dropletController.js – Either creates or deletes local droplets (apis fetched either by subscriptionControllerStripe.js
@@ -744,27 +754,27 @@ For a “free user account” it also paints external server provided by the use
 dropletControllerDO.js – Either creates or deletes DO droplets (apis endpoints fetched by the
 subscriptionControllerStripe.js).
 If DO droplet has been created, paint it.
-
+<br><br>
 “subscriptionControllerStripe.js” provides an example of the recurrent subscription set via Stripe payment platform. To
 have another platform, the child app (subapps/stripe-subscriptions/) must be replaced by another payment app. The Stripe
 webhook (/stripeRecu/webhook) will have to be changed too.
-
+<br><br>
 “dropletControllerDO.js” provides an example of the service offered by DO api and accessed via the recurrent
 subscription. Routines in “dropletControllerDO.js” are called from the “subscriptionControllerStripe.js”. To have
 another service provisioned via Stripe, the “dropletControllerDO.js” must be replaced with another file (eg
 membership.js).
-
-Stripe app has a footprint in:
-srv_start.sh
-srv_stop.sh
-subapps/stripe-subscriptions/
-main-app.js:99:app.use('/stripeSubs', redirectIfNotRegistered, proxy …
+<br><br>
+Stripe app has a footprint in:<br>
+srv_start.sh<br>
+srv_stop.sh<br>
+subapps/stripe-subscriptions/<br>
+main-app.js:99:app.use('/stripeSubs', redirectIfNotRegistered, proxy …<br>
 controllers/userController.js:222: return res.redirect(process.env.PLANET_URL+'/stripeSubs/');
-
-Stripe webhook is set via:
-routes/subscriptionRoutesStripe.js:6:router.post("/stripeRecu/webhook" , …
-controllers/subscriptionControllerStripe.js:21:exports.subscription_stripeRecu_webhook = [
-
+<br><br>
+Stripe webhook is set via:<br>
+routes/subscriptionRoutesStripe.js:6:router.post("/stripeRecu/webhook" , …<br>
+controllers/subscriptionControllerStripe.js:21:exports.subscription_stripeRecu_webhook = [<br>
+<br>
 Comment: Probably not the best structure. A cleaner separation between the main app, service and stripe would be
 achieved if we had a stipe-webhook allocated inside the Stripe child-app and the service script to have endpoints
 exposed to listen to messages from this webhook. When a new event is received from Stripe-external to the webhook on the
