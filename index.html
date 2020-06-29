@@ -16,7 +16,7 @@
         }
 
         img {
-            width: 80%;
+            width: 90%;
             height: auto;
             opacity: 0.9;
         }
@@ -408,7 +408,7 @@ Max is the maxim values of the feature (must be numeric). Set to 1 for the radio
 Target is the desired target value to be achieved during the mission (must lie within the min-max range).
 </li><li>
 Type is either “text”, “radio” or “api”.
-    <ol>
+    <ol type="a">
     <li>
        “text” is a default type and indicates input text area
     </li><li>
@@ -676,7 +676,7 @@ pathRewrite: { '^/stripeSubs': '/' }, onProxyReq }));
 Expose webhook endpoint to listen for Stripe events 
 (must match webhook set on the remote Stripe)<br>
 subscriptionRoutesStripe.js:<br>
-router.post("/stripeRecu/webhook" , subscription_controller.subscription_stripeRecu_webhook)<br>
+router.post("/stripeRecu/webhook", subscription_controller.subscription_stripeRecu_webhook)<br>
 subscriptionConstrollerStripe.js:<br>
 exports.subscription_stripeRecu_webhook = ..
 </li>
@@ -756,11 +756,14 @@ srv_start.sh<br>
 srv_stop.sh<br>
 subapps/stripe-subscriptions/<br>
 main-app.js:99:app.use('/stripeSubs', redirectIfNotRegistered, proxy …<br>
-controllers/userController.js:222: return res.redirect(process.env.PLANET_URL+'/stripeSubs/');
+controllers/userController.js:222: 
+return res.redirect(process.env.PLANET_URL+'/stripeSubs/');
 <br><br>
 Stripe webhook is set via:<br>
-routes/subscriptionRoutesStripe.js:6:router.post("/stripeRecu/webhook" , …<br>
-controllers/subscriptionControllerStripe.js:21:exports.subscription_stripeRecu_webhook = [<br>
+routes/subscriptionRoutesStripe.js:6: 
+router.post("/stripeRecu/webhook" , …<br>
+controllers/subscriptionControllerStripe.js:21: 
+exports.subscription_stripeRecu_webhook = [<br>
 <br>
 Comment: Probably not the best structure. A cleaner separation between the main app, service and stripe would be
 achieved if we had a stipe-webhook allocated inside the Stripe child-app and the service script to have endpoints
