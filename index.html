@@ -325,28 +325,27 @@ wget https://github.com/nugzarm/sizmari/archive/master.zip
 Inside the /root directory unzip master.zip (if unzip is not available install it via: apt install unzip). This will
 create folder /root/sizmari-master/
 unzip master.zip
-(run /root/ sizmari-master/install_bundle.sh) (!!!!!!!!!!!!!!!!!NOT Implemented)
-The script runs the following commands:
+(run /root/ sizmari-master/install_bundle.sh  !!!!!!!!!!!!!!!!!NOT Implemented <br>
+The script is to run the following commands:)
 </li><li>
 
-Rename /root/sizmari-master/ to /root/prototype/
-mv sizmari-master prototype
+Rename /root/sizmari-master/ to /root/bundlepod/
+mv sizmari-master bundlepod
 </li><li>
 
 From the command line run
-cp /root/.env_cut /root/.env
+cp /root/bundlepod/.env_cut /root/bundlepod/.env
 </li><li>
 
 Replace “newsite.com” with your domain name and then run in the command line:
-find /root/prototype \( -type d -name .git -prune \) -o -type f -print0 | xargs -0 sed -i
-'s/bundledev\.com/newsite.com/g'
+find /root/bundlepod \( -type d -name .git -prune \) -o -type f -print0 | xargs -0 sed -i 's/bundledev\.com/newsite.com/g'
 </li><li>
 
 Replace “newsite” with your domain name (without TLD extension) and then run in the command line:
-find /root/prototype \( -type d -name .git -prune \) -o -type f -print0 | xargs -0 sed -i 's/bundledev/newsite/'
+find /root/bundlepod \( -type d -name .git -prune \) -o -type f -print0 | xargs -0 sed -i 's/bundledev/newsite/'
 </li><li>
 
-to run in test mode, run in the command line:
+to run in a test mode, run from the command line:
 ./srv_start.sh
 </li><li>
 
