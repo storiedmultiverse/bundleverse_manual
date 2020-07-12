@@ -318,62 +318,67 @@ Backend: Nodejs, Express, MongoDb
     </ul>
 
 </li><li>
-ssh to your server as an admin, cd to the /root directory, and get master.zip from the github
+ssh to your server as an admin, <br>
+cd to the /root directory, and get master.zip from the github <br>
 wget https://github.com/nugzarm/sizmari/archive/master.zip
 </li><li>
 
-Inside the /root directory unzip master.zip (if unzip is not available install it via: apt install unzip). This will
-create folder /root/sizmari-master/
-unzip master.zip
-(run /root/ sizmari-master/install_bundle.sh  !!!!!!!!!!!!!!!!!NOT Implemented <br> 
+Inside the /root directory unzip master.zip 
+(if unzip is not available install it via: apt install unzip). This will
+create folder /root/sizmari-master/ <br>
+unzip master.zip <br><br>
+(run /root/ sizmari-master/install_bundle.sh  !!!!!!!!!!!!!!!!!NOT Implemented
 The script is to run the following commands:)
 </li><li>
 
-Rename /root/sizmari-master/ to /root/bundlepod/
+Rename /root/sizmari-master/ to /root/bundlepod/ <br>
 mv sizmari-master bundlepod
 </li><li>
 
-From the command line run
+From the command line run <br>
 cp /root/bundlepod/.env_cut /root/bundlepod/.env
 </li><li>    
 
-Create data directory
-mkdir /var/lib/bundlepod/subapps/trueme/data    
+Create data directory <br>
+mkdir -p /var/lib/bundlepod/subapps/trueme/data    
 </li><li>
 
-Replace “newsite.com” with your domain name and then run in the command line:
+Replace “newsite.com” with your domain name and then run in the command line: <br>
 find /root/bundlepod \( -type d -name .git -prune \) -o -type f -print0 | xargs -0 sed -i 's/bundledev\.com/newsite.com/g'
 </li><li>
 
-Replace “newsite” with your domain name (without TLD extension) and then run in the command line:
+Replace “newsite” with your domain name (without TLD extension) and then run in 
+the command line: <br>
 find /root/bundlepod \( -type d -name .git -prune \) -o -type f -print0 | xargs -0 sed -i 's/bundledev/newsite/'
 </li><li>
 
-Run it in a test mode:
+Run it in a test mode: <br>
 ./srv_start.sh
 </li><li>
 
-Copy admin user to mongodb:
-cp /root/bundlepod/subapps/trueme/utils/varlibmongodump.tgz /var/lib
-cd /var/lib
-tar --same-owner -zxvf varlibmongodump.tgz
-mongorestore varlibmongodump
+Copy admin user to mongodb: <br>
+cp /root/bundlepod/subapps/trueme/utils/varlibmongodump.tgz /var/lib <br>
+cd /var/lib <br>
+tar --same-owner -zxvf varlibmongodump.tgz <br>
+mongorestore varlibmongodump <br>
 </li><li>
 
-To test, enter in browser example.com, wait for the page to download and then login as an admin user:
-email: administrator@gmail.com
-password: Administrator
+To test, enter in browser example.com, 
+wait for the page to download and then login as an admin user: <br>
+email: administrator@gmail.com  <br>
+password: Administrator <br>
 </li><li>
 
-Update admin password
+Update admin password <br>
 </li><li>
 
-To stop, run in the command line: 
-cd /root/bundlepod
-./srv_stop.sh
+To stop, run in the command line: <br> 
+cd /root/bundlepod <br>
+./srv_stop.sh <br>
 </li><li>
 
-To run in production: nohup ./srv_start.sh &
+To run in production: <br>
+nohup ./srv_start.sh &
 </li><li>
 
 If needed open /root/bundlepod/.env and update manually keys in /root/bundlepod/.env
