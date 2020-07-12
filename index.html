@@ -325,7 +325,7 @@ wget https://github.com/nugzarm/sizmari/archive/master.zip
 Inside the /root directory unzip master.zip (if unzip is not available install it via: apt install unzip). This will
 create folder /root/sizmari-master/
 unzip master.zip
-(run /root/ sizmari-master/install_bundle.sh  !!!!!!!!!!!!!!!!!NOT Implemented <br>
+(run /root/ sizmari-master/install_bundle.sh  !!!!!!!!!!!!!!!!!NOT Implemented <br> 
 The script is to run the following commands:)
 </li><li>
 
@@ -335,6 +335,10 @@ mv sizmari-master bundlepod
 
 From the command line run
 cp /root/bundlepod/.env_cut /root/bundlepod/.env
+</li><li>    
+
+Create data directory
+mkdir /var/lib/bundlepod/subapps/trueme/data    
 </li><li>
 
 Replace “newsite.com” with your domain name and then run in the command line:
@@ -345,23 +349,34 @@ Replace “newsite” with your domain name (without TLD extension) and then run
 find /root/bundlepod \( -type d -name .git -prune \) -o -type f -print0 | xargs -0 sed -i 's/bundledev/newsite/'
 </li><li>
 
-to run in a test mode, run from the command line:
+Run it in a test mode:
 ./srv_start.sh
 </li><li>
 
+Copy admin user to mongodb:
+cp /root/bundlepod/subapps/trueme/utils/varlibmongodump.tgz /var/lib
+cd /var/lib
+tar --same-owner -zxvf varlibmongodump.tgz
+mongorestore varlibmongodump
+</li><li>
+
 To test, enter in browser example.com, wait for the page to download and then login as an admin user:
-(!!!!!!!!!!!!!!!!! Not implemented)
-email: admin@gmail.com
-password: admin
+email: administrator@gmail.com
+password: Administrator
 </li><li>
 
-to stop, run in the command line: ./srv_stop.sh
+Update admin password
 </li><li>
 
-to run in production: nohup ./srv_start.sh &
+To stop, run in the command line: 
+cd /root/bundlepod
+./srv_stop.sh
 </li><li>
 
-If needed open /root/.env and update manually keys in /root/.env
+To run in production: nohup ./srv_start.sh &
+</li><li>
+
+If needed open /root/bundlepod/.env and update manually keys in /root/bundlepod/.env
 </li>
 
 </ol>
